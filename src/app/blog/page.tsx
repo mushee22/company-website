@@ -2,40 +2,50 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Brain, Shield, Rocket } from "lucide-react";
+import { Brain, Shield, Rocket, Code, Database, TrendingUp, Globe } from "lucide-react";
 
 
 const BlogPage = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "The Future of AI in Business: Transforming Industries",
-      excerpt: "Artificial intelligence is reshaping how businesses operate today. From automation to predictive analytics...",
-      category: "Technology",
-      date: "March 15, 2024",
-      icon: Brain,
-      gradient: "from-blue-400 to-purple-500",
+      title: "Why Next.js is Better for Websites than React",
+      excerpt: "Discover the advantages of Next.js over vanilla React for building modern, performant websites...",
+      category: "Development",
+      date: "March 20, 2024",
+      icon: Code,
+      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
       categoryColor: "bg-blue-900 text-blue-300"
     },
     {
       id: 2,
-      title: "Cybersecurity Best Practices for Modern Businesses",
-      excerpt: "With cyber threats becoming increasingly sophisticated, businesses need robust security measures...",
-      category: "Security",
-      date: "March 10, 2024",
-      icon: Shield,
-      gradient: "from-green-400 to-teal-500",
+      title: "Strapi CMS: The Ultimate Content Management Solution",
+      excerpt: "Learn how Strapi CMS empowers developers to build flexible, scalable content management systems...",
+      category: "CMS",
+      date: "March 18, 2024",
+      icon: Database,
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
       categoryColor: "bg-green-900 text-green-300"
     },
     {
       id: 3,
-      title: "Building Scalable Applications: Architecture Guidelines",
-      excerpt: "Creating applications that can grow with your business requires careful architectural planning...",
-      category: "Development",
-      date: "March 5, 2024",
-      icon: Rocket,
-      gradient: "from-orange-400 to-red-500",
+      title: "The Importance of Digital Marketing in Modern Business",
+      excerpt: "Digital marketing has become essential for business growth. Understand key strategies and benefits...",
+      category: "Marketing",
+      date: "March 15, 2024",
+      icon: TrendingUp,
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
       categoryColor: "bg-orange-900 text-orange-300"
+    },
+    {
+      id: 4,
+      title: "Why Every Business Needs a Professional Website",
+      excerpt: "In today's digital age, a professional website is crucial for business credibility and growth...",
+      category: "Business",
+      date: "March 12, 2024",
+      icon: Globe,
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      categoryColor: "bg-purple-900 text-purple-300"
     }
   ];
 
@@ -116,8 +126,13 @@ const BlogPage = () => {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <article className="bg-gray-900 border border-gray-800 rounded-lg shadow-lg overflow-hidden h-full hover:bg-gray-800 transition duration-300">
-                    <div className={`h-64 bg-gradient-to-r ${post.gradient} flex items-center justify-center`}>
-                      <IconComponent className="w-16 h-16 text-white" />
+                    <div className="h-64 relative overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20"></div>
                     </div>
                     <div className="p-8">
                       <div className="flex items-center mb-4">

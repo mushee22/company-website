@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShoppingCart, Smartphone, BarChart3 } from "lucide-react";
+import { ShoppingCart, TrendingUp, GraduationCap, Gavel, Newspaper, Globe } from "lucide-react";
 
 
 const Portfolio = () => {
@@ -11,21 +11,42 @@ const Portfolio = () => {
       title: "E-Commerce Platform",
       subtitle: "Modern E-Commerce",
       description: "Full-stack e-commerce solution with payment integration and inventory management.",
-      gradient: "from-blue-500 to-purple-600"
+      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
     },
     {
-      icon: Smartphone,
-      title: "Healthcare App",
-      subtitle: "Medical Dashboard",
-      description: "Patient management system with real-time monitoring and analytics.",
-      gradient: "from-green-500 to-teal-600"
+      icon: TrendingUp,
+      title: "Trading Education Platform",
+      subtitle: "Financial Learning Hub",
+      description: "Comprehensive trading education platform with learning videos, live classes, market news, and trading ideas.",
+      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
     },
     {
-      icon: BarChart3,
-      title: "Analytics Dashboard",
-      subtitle: "Business Intelligence",
-      description: "Advanced analytics platform with AI-powered insights and reporting.",
-      gradient: "from-orange-500 to-red-600"
+      icon: GraduationCap,
+      title: "Learning Management System",
+      subtitle: "Educational Platform",
+      description: "Comprehensive LMS with course management, progress tracking, and interactive learning tools.",
+      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+    },
+    {
+      icon: Gavel,
+      title: "Bidding Application",
+      subtitle: "Auction Platform",
+      description: "Real-time bidding platform with secure payments, auction management, and user verification.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+    },
+    {
+      icon: Newspaper,
+      title: "News Listing App",
+      subtitle: "Media Platform",
+      description: "Dynamic news aggregation platform with category filtering, search, and admin dashboard.",
+      image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+    },
+    {
+      icon: Globe,
+      title: "Static & Dynamic Websites",
+      subtitle: "Web Development",
+      description: "Custom static and dynamic websites built with modern frameworks and optimized for performance.",
+      image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
     }
   ];
 
@@ -94,12 +115,12 @@ const Portfolio = () => {
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className={`bg-gradient-to-r ${project.gradient} rounded-lg h-64 flex items-center justify-center text-white relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-300"></div>
-                  <div className="text-center relative z-10">
-                    <IconComponent className="text-4xl mb-4 mx-auto" />
-                    <h4 className="text-xl font-semibold">{project.title}</h4>
-                  </div>
+                <div className="relative rounded-lg h-64 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-semibold text-white mb-2">{project.subtitle}</h4>

@@ -5,10 +5,8 @@ import { Lightbulb, RefreshCw, CheckCircle, HeadphonesIcon } from "lucide-react"
 
 const About = () => {
   const stats = [
-    { number: "150+", label: "Projects Completed", color: "text-yellow-400" },
-    { number: "50+", label: "Happy Clients", color: "text-green-400" },
-    { number: "4.9/5", label: "Client Rating", color: "text-pink-400" },
-    { number: "24/7", label: "Support", color: "text-cyan-400" }
+    { number: "10+", label: "Projects Completed", color: "text-yellow-400" },
+    { number: "10+", label: "Happy Clients", color: "text-green-400" }
   ];
 
   const features = [
@@ -29,7 +27,7 @@ const About = () => {
     },
     {
       icon: HeadphonesIcon,
-      title: "24/7 Support",
+      title: "Scalable Solutions",
       color: "from-yellow-400 to-orange-500"
     }
   ];
@@ -85,7 +83,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              About TechFlow
+              About Traceflowtech
             </motion.h2>
             
             <motion.p 
@@ -95,7 +93,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              Founded in 2020, TechFlow has been at the forefront of digital innovation, helping businesses transform their operations through cutting-edge technology solutions.
+              Founded in 2020, Traceflowtech has been at the forefront of digital innovation, helping businesses transform their operations through cutting-edge technology solutions.
             </motion.p>
             
             <motion.p 

@@ -4,19 +4,27 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/#about", label: "About" },
-    { href: "/#services", label: "Services" },
     { href: "/#team", label: "Team" },
     { href: "/#portfolio", label: "Portfolio" },
     { href: "/blog", label: "Blog" },
+  ];
+
+  const services = [
+    { href: "/services/web-development", label: "Web Development" },
+    { href: "/services/mobile-apps", label: "Mobile Apps" },
+    { href: "/services/cloud-solutions", label: "Cloud Solutions" },
+    { href: "/services/digital-marketing", label: "Digital Marketing" },
+    { href: "/services/ai-integration", label: "AI Integration" },
   ];
 
   return (
@@ -29,7 +37,7 @@ const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-white">
-              TechFlow
+              Traceflowtech
             </Link>
           </div>
           
@@ -47,6 +55,68 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button 
+                className="text-gray-300 hover:text-white transition duration-300 flex items-center py-2"
+                onMouseEnter={() => setIsServicesOpen(true)}
+              >
+                Services
+                <motion.div
+                  animate={{ rotate: isServicesOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown className="ml-1 w-4 h-4" />
+                </motion.div>
+              </button>
+              
+              {isServicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-gray-900/98 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-2xl z-50 overflow-hidden"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
+                >
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gray-900 border-l border-t border-gray-700/50 rotate-45"></div>
+                  <div className="p-6">
+                    <div className="text-sm text-gray-400 uppercase tracking-wider font-semibold mb-4">Our Services</div>
+                    <div className="space-y-2">
+                      {services.map((service, index) => (
+                        <motion.div
+                          key={service.href}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
+                        >
+                          <Link
+                            href={service.href}
+                            className="group/item flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-gray-800/50 hover:to-gray-700/30 rounded-xl transition-all duration-300 font-medium"
+                          >
+                            <span className="flex-1 group-hover/item:translate-x-1 transition-transform duration-200">
+                              {service.label}
+                            </span>
+                            <motion.div
+                              className="opacity-0 group-hover/item:opacity-100 ml-2"
+                              initial={{ x: -5 }}
+                              whileHover={{ x: 0 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-sm">
+                                →
+                              </div>
+                            </motion.div>
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
             <Link
               href="/contact"
               className="bg-white text-black px-6 py-2 rounded-lg hover:bg-gray-100 transition duration-300 font-semibold transform hover:scale-105"

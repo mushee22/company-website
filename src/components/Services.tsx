@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Smartphone, Cloud, TrendingUp, Shield, Bot } from "lucide-react";
+import { Code, Smartphone, Cloud, TrendingUp, Bot } from "lucide-react";
 import { StarsBackground } from "./ui/stars-background";
+import Link from "next/link";
 
 const Services = () => {
   const services = [
@@ -10,37 +11,36 @@ const Services = () => {
       icon: Code,
       title: "Web Development",
       description: "Custom web applications built with modern frameworks and best practices for optimal performance.",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
+      href: "/services/web-development"
     },
     {
       icon: Smartphone,
       title: "Mobile Apps",
       description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
-      color: "from-green-500 to-green-600"
+      color: "from-green-500 to-green-600",
+      href: "/services/mobile-apps"
     },
     {
       icon: Cloud,
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and DevOps solutions for enterprise-grade applications.",
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
+      href: "/services/cloud-solutions"
     },
     {
       icon: TrendingUp,
       title: "Digital Marketing",
       description: "Data-driven marketing strategies to boost your online presence and drive conversions.",
-      color: "from-yellow-500 to-yellow-600"
-    },
-    {
-      icon: Shield,
-      title: "Cybersecurity",
-      description: "Comprehensive security solutions to protect your digital assets and customer data.",
-      color: "from-red-500 to-red-600"
+      color: "from-yellow-500 to-yellow-600",
+      href: "/services/digital-marketing"
     },
     {
       icon: Bot,
       title: "AI Integration",
       description: "Smart automation and AI-powered features to enhance your business processes.",
-      color: "from-indigo-500 to-indigo-600"
+      color: "from-indigo-500 to-indigo-600",
+      href: "/services/ai-integration"
     }
   ];
 
@@ -80,7 +80,7 @@ const Services = () => {
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-wrap justify-center gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -94,21 +94,21 @@ const Services = () => {
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] max-w-sm"
               >
-                <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg p-8 h-full hover:bg-gray-800/50 hover:border-gray-700/50 transition-all duration-300 group relative overflow-hidden">
-                  {/* Stars background on hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <StarsBackground />
+                <Link href={service.href}>
+                  <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg p-8 h-full hover:bg-gray-800/50 hover:border-gray-700/50 transition-all duration-300 group relative overflow-hidden cursor-pointer">
+                    {/* Stars background on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <StarsBackground />
+                    </div>
+                    <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-6 relative z-10`}>
+                      <IconComponent className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-4 relative z-10">{service.title}</h3>
+                    <p className="text-gray-400 relative z-10">{service.description}</p>
                   </div>
-                  {/* Glowing effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
-                  <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center mb-6 relative z-10`}>
-                    <IconComponent className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-4 relative z-10">{service.title}</h3>
-                  <p className="text-gray-400 relative z-10">{service.description}</p>
-                </div>
+                </Link>
               </motion.div>
             );
           })}

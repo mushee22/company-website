@@ -1,64 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Github, Dribbble, Palette } from "lucide-react";
 
 const Team = () => {
   const teamMembers = [
     {
-      initials: "JS",
-      name: "John Smith",
+      initials: "HD",
+      name: "Hamdan",
       role: "CEO & Founder",
-      description: "Visionary leader with 15+ years in tech, passionate about building solutions that make a difference.",
+      description: "Visionary leader with expertise in business strategy and technology innovation.",
       color: "from-blue-400 to-blue-600",
-      social: [
-        { icon: Linkedin, href: "#", label: "LinkedIn" },
-        { icon: Twitter, href: "#", label: "Twitter" }
-      ]
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
     },
     {
-      initials: "SD",
-      name: "Sarah Davis",
+      initials: "ND",
+      name: "Nidhin",
       role: "CTO",
       description: "Technical architect with expertise in cloud infrastructure and scalable system design.",
       color: "from-green-400 to-green-600",
-      social: [
-        { icon: Linkedin, href: "#", label: "LinkedIn" },
-        { icon: Github, href: "#", label: "GitHub" }
-      ]
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
     },
     {
-      initials: "MJ",
-      name: "Mike Johnson",
-      role: "Lead Designer",
-      description: "Creative director focused on user experience and interface design that converts.",
+      initials: "MS",
+      name: "Musheer",
+      role: "Front-end Developer",
+      description: "Creative developer focused on user experience and modern web technologies.",
       color: "from-purple-400 to-purple-600",
-      social: [
-        { icon: Dribbble, href: "#", label: "Dribbble" },
-        { icon: Palette, href: "#", label: "Portfolio" }
-      ]
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
     },
     {
-      initials: "EM",
-      name: "Emma Martinez",
-      role: "Product Manager",
+      initials: "BL",
+      name: "Bilal",
+      role: "Project Manager",
       description: "Strategic thinker who bridges business needs with technical solutions for optimal outcomes.",
       color: "from-red-400 to-pink-600",
-      social: [
-        { icon: Linkedin, href: "#", label: "LinkedIn" },
-        { icon: Twitter, href: "#", label: "Twitter" }
-      ]
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
     },
     {
-      initials: "AB",
-      name: "Alex Brown",
-      role: "DevOps Engineer",
-      description: "Cloud infrastructure specialist ensuring scalable and reliable deployment solutions.",
+      initials: "ND",
+      name: "Nandana",
+      role: "Front-end Developer",
+      description: "UI/UX specialist ensuring pixel-perfect designs and smooth user interactions.",
       color: "from-teal-400 to-cyan-600",
-      social: [
-        { icon: Github, href: "#", label: "GitHub" },
-        { icon: Linkedin, href: "#", label: "LinkedIn" }
-      ]
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face&auto=format&q=80"
     }
   ];
 
@@ -114,37 +98,20 @@ const Team = () => {
             >
               <div className="relative mb-6">
                 <motion.div 
-                  className={`w-32 h-32 bg-gradient-to-r ${member.color} rounded-full mx-auto flex items-center justify-center text-white text-4xl font-bold`}
+                  className="w-32 h-32 rounded-full mx-auto overflow-hidden border-2 border-gray-700"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {member.initials}
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
               <p className="text-blue-600 mb-4">{member.role}</p>
               <p className="text-gray-400 mb-6">{member.description}</p>
-              <div className="flex justify-center space-x-4">
-                {member.social.map((social, socialIndex) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <motion.a
-                      key={social.label}
-                      href={social.href}
-                      className="text-gray-400 hover:text-blue-600 transition-colors duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 + socialIndex * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <IconComponent className="w-5 h-5" />
-                      <span className="sr-only">{social.label}</span>
-                    </motion.a>
-                  );
-                })}
-              </div>
             </motion.div>
           ))}
         </motion.div>

@@ -1,34 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, Shield, Rocket } from "lucide-react";
+import { Code, Database, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 
 const Blog = () => {
   const blogPosts = [
     {
-      icon: Brain,
-      category: "Technology",
-      title: "The Future of AI in Business",
-      description: "Exploring how artificial intelligence is reshaping modern business operations...",
-      date: "March 15, 2024",
-      gradient: "from-blue-400 to-purple-500"
-    },
-    {
-      icon: Shield,
-      category: "Security",
-      title: "Cybersecurity Best Practices",
-      description: "Essential security measures every business should implement...",
-      date: "March 10, 2024",
-      gradient: "from-green-400 to-teal-500"
-    },
-    {
-      icon: Rocket,
+      id: 1,
+      icon: Code,
       category: "Development",
-      title: "Building Scalable Applications",
-      description: "Key principles for developing applications that grow with your business...",
-      date: "March 5, 2024",
-      gradient: "from-orange-400 to-red-500"
+      title: "Why Next.js is Better for Websites than React",
+      description: "Discover the advantages of Next.js over vanilla React for building modern, performant websites...",
+      date: "March 20, 2024",
+      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      categoryColor: "bg-blue-900 text-blue-300"
+    },
+    {
+      id: 2,
+      icon: Database,
+      category: "CMS",
+      title: "Strapi CMS: The Ultimate Content Management Solution",
+      description: "Learn how Strapi CMS empowers developers to build flexible, scalable content management systems...",
+      date: "March 18, 2024",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      categoryColor: "bg-green-900 text-green-300"
+    },
+    {
+      id: 3,
+      icon: TrendingUp,
+      category: "Marketing",
+      title: "The Importance of Digital Marketing in Modern Business",
+      description: "Digital marketing has become essential for business growth. Understand key strategies and benefits...",
+      date: "March 15, 2024",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      categoryColor: "bg-orange-900 text-orange-300"
     }
   ];
 
@@ -97,14 +104,40 @@ const Blog = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:bg-gray-800 transition duration-300">
-                  <div className={`h-48 bg-gradient-to-r ${post.gradient} flex items-center justify-center`}>
-                    <IconComponent className="text-4xl text-white" />
+                  <div className="h-48 relative overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/20"></div>
                   </div>
                   <div className="p-6">
-                    <div className="text-sm text-blue-600 mb-2">{post.category}</div>
-                    <h3 className="text-xl font-semibold text-white mb-3">{post.title}</h3>
+                    <div className="flex items-center mb-4">
+                      <span className={`${post.categoryColor} px-3 py-1 rounded-full text-sm font-semibold mr-4`}>
+                        {post.category}
+                      </span>
+                      <span className="text-gray-400 text-sm">{post.date}</span>
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">
+                      <Link href={`/blog/${post.id}`} className="hover:text-gray-300 transition duration-300">
+                        {post.title}
+                      </Link>
+                    </h3>
                     <p className="text-gray-400 mb-4">{post.description}</p>
-                    <div className="text-sm text-gray-500">{post.date}</div>
+                    <Link 
+                      href={`/blog/${post.id}`} 
+                      className="text-gray-300 font-semibold hover:text-white transition duration-300 inline-flex items-center"
+                    >
+                      Read More 
+                      <motion.span 
+                        className="ml-2"
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                      >
+                        →
+                      </motion.span>
+                    </Link>
                   </div>
                 </div>
               </motion.article>

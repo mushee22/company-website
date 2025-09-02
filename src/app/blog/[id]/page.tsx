@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Brain, Shield, Rocket } from "lucide-react";
+import { ArrowLeft, Brain, Shield, Rocket, Code, Database, TrendingUp, Globe } from "lucide-react";
 
 
 interface BlogPost {
@@ -11,55 +11,136 @@ interface BlogPost {
   category: string;
   date: string;
   icon: React.ComponentType<{ className?: string; size?: number }>;
+  image: string;
   content: string;
 }
 
 const blogPosts: { [key: string]: BlogPost } = {
   '1': {
-    title: 'The Future of AI in Business: Transforming Industries',
-    category: 'Technology',
-    date: 'March 15, 2024',
-    icon: Brain,
+    title: 'Why Next.js is Better for Websites than React',
+    category: 'Development',
+    date: 'March 20, 2024',
+    icon: Code,
+    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
     content: `
       <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-        Artificial intelligence is no longer a futuristic concept—it's reshaping how businesses operate today. From automation to predictive analytics, AI is driving innovation across every industry.
+        While React revolutionized frontend development with its component-based architecture, Next.js takes web development to the next level by addressing React's limitations and providing a complete framework for production-ready applications.
       </p>
 
-      <h2 class="text-2xl font-bold text-white mb-6">The Current State of AI Adoption</h2>
+      <h2 class="text-2xl font-bold text-white mb-6">Server-Side Rendering vs Client-Side Rendering</h2>
       <p class="text-gray-300 mb-6 leading-relaxed">
-        Organizations worldwide are increasingly integrating AI technologies into their core operations. According to recent studies, over 85% of enterprises are either using or planning to use AI within the next two years.
+        React applications traditionally render on the client-side, which can lead to slower initial page loads and SEO challenges. Next.js solves this with built-in server-side rendering (SSR) and static site generation (SSG), ensuring faster load times and better search engine optimization.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Built-in Performance Optimizations</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Next.js automatically optimizes your application with features like automatic code splitting, image optimization, and font optimization. These features require additional configuration in vanilla React but come out-of-the-box with Next.js.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Simplified Routing and API Integration</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        While React requires third-party libraries like React Router for navigation, Next.js provides file-based routing that's intuitive and powerful. Additionally, API routes allow you to build full-stack applications without needing a separate backend framework.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Developer Experience and Deployment</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Next.js offers an exceptional developer experience with features like hot reloading, TypeScript support, and built-in ESLint configuration. Deployment is seamless with platforms like Vercel, making it easier to get your website live quickly.
       </p>
     `
   },
   '2': {
-    title: 'Cybersecurity Best Practices for Modern Businesses',
-    category: 'Security',
-    date: 'March 10, 2024',
-    icon: Shield,
+    title: 'Strapi CMS: The Ultimate Content Management Solution',
+    category: 'CMS',
+    date: 'March 18, 2024',
+    icon: Database,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
     content: `
       <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-        With cyber threats becoming increasingly sophisticated, businesses need robust security measures to protect their digital assets and customer data.
+        Strapi is a revolutionary open-source headless CMS that empowers developers to build flexible, scalable content management systems while providing content creators with an intuitive administrative interface.
       </p>
 
-      <h2 class="text-2xl font-bold text-white mb-6">Essential Security Measures</h2>
+      <h2 class="text-2xl font-bold text-white mb-6">What Makes Strapi Different</h2>
       <p class="text-gray-300 mb-6 leading-relaxed">
-        Implementing a comprehensive cybersecurity strategy requires multiple layers of protection, from network security to employee training.
+        Unlike traditional CMS platforms like WordPress or Drupal, Strapi follows a headless architecture that separates content management from presentation. This approach gives developers complete freedom to choose their frontend technology while content managers enjoy a user-friendly dashboard.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Key Features and Benefits</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Strapi offers customizable content types, role-based permissions, powerful REST and GraphQL APIs, and an extensive plugin ecosystem. Its flexibility allows you to create complex content structures tailored to your specific business needs.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Perfect for Modern Development</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        With its modern architecture, Strapi integrates seamlessly with popular frontend frameworks like React, Vue, Angular, and Next.js. It supports multiple databases, offers real-time collaboration features, and provides robust security measures for enterprise applications.
       </p>
     `
   },
   '3': {
-    title: 'Building Scalable Applications: Architecture Guidelines',
-    category: 'Development',
-    date: 'March 5, 2024',
-    icon: Rocket,
+    title: 'The Importance of Digital Marketing in Modern Business',
+    category: 'Marketing',
+    date: 'March 15, 2024',
+    icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
     content: `
       <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-        Creating applications that can grow with your business requires careful architectural planning and adherence to proven design patterns.
+        Digital marketing has transformed from a luxury to a necessity in today's business landscape. It encompasses all marketing efforts that use electronic devices and the internet to connect with current and prospective customers where they spend their time online.
       </p>
 
-      <h2 class="text-2xl font-bold text-white mb-6">Key Architecture Principles</h2>
+      <h2 class="text-2xl font-bold text-white mb-6">The Digital Transformation Impact</h2>
       <p class="text-gray-300 mb-6 leading-relaxed">
-        Scalable architecture is built on principles of modularity, loose coupling, and horizontal scaling capabilities.
+        The COVID-19 pandemic accelerated digital adoption by years, making online presence critical for business survival. Companies that embraced digital marketing early gained significant competitive advantages and market share.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Core Digital Marketing Channels</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Effective digital marketing leverages multiple channels: search engine optimization (SEO), pay-per-click advertising (PPC), social media marketing, email marketing, content marketing, and influencer partnerships. Each channel serves specific purposes in the customer journey.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Measurable ROI and Analytics</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Unlike traditional marketing, digital marketing provides detailed analytics and measurable results. Businesses can track conversion rates, customer acquisition costs, lifetime value, and campaign performance in real-time, enabling data-driven decision making.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Cost-Effective Customer Acquisition</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Digital marketing offers superior cost-effectiveness compared to traditional advertising. Small businesses can compete with larger companies through targeted campaigns, precise audience segmentation, and optimized budget allocation across different channels.
+      </p>
+    `
+  },
+  '4': {
+    title: 'Why Every Business Needs a Professional Website',
+    category: 'Business',
+    date: 'March 12, 2024',
+    icon: Globe,
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+    content: `
+      <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+        In today's digital-first world, a professional website is not just an option—it's a necessity. Your website serves as your digital storefront, the foundation of your online presence, and often the first impression potential customers have of your business.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Credibility and Trust Building</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        A professional website immediately establishes credibility and builds trust with potential customers. Studies show that 75% of users judge a company's credibility based on website design. A well-designed site signals that you're a legitimate, established business that cares about quality.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">24/7 Accessibility and Global Reach</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Unlike physical stores with limited hours, your website works around the clock, serving customers in different time zones and providing information whenever they need it. This accessibility can significantly increase your potential customer base and revenue opportunities.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Cost-Effective Marketing Platform</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        A website serves as the hub for all your digital marketing efforts. Whether you're running social media campaigns, email marketing, or paid advertising, your website is where conversions happen. It's more cost-effective than traditional advertising and provides measurable results.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Competitive Advantage</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        In many industries, having a professional website is still not universal. A well-designed, fast, and user-friendly website can give you a significant advantage over competitors who rely solely on social media or word-of-mouth marketing.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mb-6">Data and Customer Insights</h2>
+      <p class="text-gray-300 mb-6 leading-relaxed">
+        Your website provides valuable insights into customer behavior, preferences, and demographics through analytics tools. This data helps you make informed business decisions, improve your services, and better understand your target market.
       </p>
     `
   }
@@ -124,12 +205,17 @@ const BlogDetailPage = ({ params }: { params: { id: string } }) => {
         </motion.header>
 
         <motion.div 
-          className="h-96 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center mb-12"
+          className="h-96 relative rounded-lg overflow-hidden mb-12"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <IconComponent className="w-24 h-24 text-white" size={96} />
+          <img 
+            src={post.image} 
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/30"></div>
         </motion.div>
 
         <motion.div 
