@@ -9,9 +9,9 @@ const Contact = () => {
       icon: MapPin,
       title: "Visit Our Office",
       details: [
-        "123 Tech Street",
-        "Innovation District",
-        "San Francisco, CA 94105"
+        "HiLITE Business Park",
+        "State Highway 28, Palazhi, Kozhikode",
+        "Pantheeramkavu, Kerala 673014"
       ],
       gradient: "from-blue-400 to-cyan-500"
     },
@@ -19,7 +19,7 @@ const Contact = () => {
       icon: Phone,
       title: "Call Us",
       details: [
-        "+1 (555) 123-4567",
+        "+91 77364 09657",
         "Monday - Friday",
         "9:00 AM - 6:00 PM PST"
       ],
@@ -29,7 +29,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email Us",
       details: [
-        "hello@techflow.com",
+        "traceflowtech@gmail.com",
         "We respond within",
         "24 hours"
       ],
