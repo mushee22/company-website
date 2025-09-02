@@ -96,7 +96,7 @@ const CloudSolutionsPage = () => {
               className="relative"
             >
               <img 
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop&crop=entropy&auto=format&q=80"
+                src="/cloud-solutions.jpg"
                 alt="Cloud Solutions"
                 className="w-full h-96 object-cover rounded-lg shadow-2xl"
               />
@@ -108,16 +108,13 @@ const CloudSolutionsPage = () => {
       {/* Features Section */}
       <section className="py-20 bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+          
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What We Offer</h2>
             <p className="text-xl text-gray-400">Enterprise cloud solutions and services</p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {

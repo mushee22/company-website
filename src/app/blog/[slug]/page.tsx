@@ -16,7 +16,7 @@ interface BlogPost {
 }
 
 const blogPosts: { [key: string]: BlogPost } = {
-  '1': {
+  'why-nextjs-better-than-react': {
     title: 'Why Next.js is Better for Websites than React',
     category: 'Development',
     date: 'March 20, 2024',
@@ -48,7 +48,7 @@ const blogPosts: { [key: string]: BlogPost } = {
       </p>
     `
   },
-  '2': {
+  'strapi-cms-ultimate-content-management': {
     title: 'Strapi CMS: The Ultimate Content Management Solution',
     category: 'CMS',
     date: 'March 18, 2024',
@@ -75,7 +75,7 @@ const blogPosts: { [key: string]: BlogPost } = {
       </p>
     `
   },
-  '3': {
+  'importance-digital-marketing-modern-business': {
     title: 'The Importance of Digital Marketing in Modern Business',
     category: 'Marketing',
     date: 'March 15, 2024',
@@ -107,7 +107,7 @@ const blogPosts: { [key: string]: BlogPost } = {
       </p>
     `
   },
-  '4': {
+  'why-every-business-needs-professional-website': {
     title: 'Why Every Business Needs a Professional Website',
     category: 'Business',
     date: 'March 12, 2024',
@@ -146,8 +146,9 @@ const blogPosts: { [key: string]: BlogPost } = {
   }
 };
 
-const BlogDetailPage = ({ params }: { params: { id: string } }) => {
-  const post = blogPosts[params.id];
+const BlogDetailPage = ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = React.use(params);
+  const post = blogPosts[slug];
 
   if (!post) {
     return (

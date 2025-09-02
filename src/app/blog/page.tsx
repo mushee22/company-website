@@ -8,7 +8,7 @@ import { Brain, Shield, Rocket, Code, Database, TrendingUp, Globe } from "lucide
 const BlogPage = () => {
   const blogPosts = [
     {
-      id: 1,
+      slug: "why-nextjs-better-than-react",
       title: "Why Next.js is Better for Websites than React",
       excerpt: "Discover the advantages of Next.js over vanilla React for building modern, performant websites...",
       category: "Development",
@@ -18,7 +18,7 @@ const BlogPage = () => {
       categoryColor: "bg-blue-900 text-blue-300"
     },
     {
-      id: 2,
+      slug: "strapi-cms-ultimate-content-management",
       title: "Strapi CMS: The Ultimate Content Management Solution",
       excerpt: "Learn how Strapi CMS empowers developers to build flexible, scalable content management systems...",
       category: "CMS",
@@ -28,7 +28,7 @@ const BlogPage = () => {
       categoryColor: "bg-green-900 text-green-300"
     },
     {
-      id: 3,
+      slug: "importance-digital-marketing-modern-business",
       title: "The Importance of Digital Marketing in Modern Business",
       excerpt: "Digital marketing has become essential for business growth. Understand key strategies and benefits...",
       category: "Marketing",
@@ -38,7 +38,7 @@ const BlogPage = () => {
       categoryColor: "bg-orange-900 text-orange-300"
     },
     {
-      id: 4,
+      slug: "why-every-business-needs-professional-website",
       title: "Why Every Business Needs a Professional Website",
       excerpt: "In today's digital age, a professional website is crucial for business credibility and growth...",
       category: "Business",
@@ -120,7 +120,7 @@ const BlogPage = () => {
               const IconComponent = post.icon;
               return (
                 <motion.div
-                  key={post.id}
+                  key={post.slug}
                   variants={itemVariants}
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -142,7 +142,7 @@ const BlogPage = () => {
                         <span className="text-gray-400 text-sm">{post.date}</span>
                       </div>
                       <h2 className="text-xl font-bold text-white mb-4">
-                        <Link href={`/blog/${post.id}`} className="hover:text-gray-300 transition duration-300">
+                        <Link href={`/blog/${post.slug}`} className="hover:text-gray-300 transition duration-300">
                           {post.title}
                         </Link>
                       </h2>
@@ -150,7 +150,7 @@ const BlogPage = () => {
                         {post.excerpt}
                       </p>
                       <Link 
-                        href={`/blog/${post.id}`} 
+                        href={`/blog/${post.slug}`} 
                         className="text-gray-300 font-semibold hover:text-white transition duration-300 inline-flex items-center"
                       >
                         Read More 

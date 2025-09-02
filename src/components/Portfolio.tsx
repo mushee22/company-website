@@ -11,35 +11,35 @@ const Portfolio = () => {
       title: "E-Commerce Platform",
       subtitle: "Modern E-Commerce",
       description: "Full-stack e-commerce solution with payment integration and inventory management.",
-      image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+      image: "/e-commerce.jpg"
     },
     {
       icon: TrendingUp,
       title: "Trading Education Platform",
       subtitle: "Financial Learning Hub",
       description: "Comprehensive trading education platform with learning videos, live classes, market news, and trading ideas.",
-      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+      image: "/trading.jpg"
     },
     {
       icon: GraduationCap,
       title: "Learning Management System",
       subtitle: "Educational Platform",
       description: "Comprehensive LMS with course management, progress tracking, and interactive learning tools.",
-      image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+      image: "/lms.jpg"
     },
     {
       icon: Gavel,
       title: "Bidding Application",
       subtitle: "Auction Platform",
       description: "Real-time bidding platform with secure payments, auction management, and user verification.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+      image: "/auction.jpg"
     },
     {
       icon: Newspaper,
       title: "News Listing App",
       subtitle: "Media Platform",
       description: "Dynamic news aggregation platform with category filtering, search, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80"
+      image: "/news-app.jpg"
     },
     {
       icon: Globe,

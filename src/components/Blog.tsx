@@ -8,7 +8,7 @@ import Link from "next/link";
 const Blog = () => {
   const blogPosts = [
     {
-      id: 1,
+      slug: "why-nextjs-better-than-react",
       icon: Code,
       category: "Development",
       title: "Why Next.js is Better for Websites than React",
@@ -18,17 +18,17 @@ const Blog = () => {
       categoryColor: "bg-blue-900 text-blue-300"
     },
     {
-      id: 2,
+      slug: "strapi-cms-ultimate-content-management",
       icon: Database,
       category: "CMS",
       title: "Strapi CMS: The Ultimate Content Management Solution",
       description: "Learn how Strapi CMS empowers developers to build flexible, scalable content management systems...",
       date: "March 18, 2024",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format&q=80",
+      image: "/strapi.webp",
       categoryColor: "bg-green-900 text-green-300"
     },
     {
-      id: 3,
+      slug: "importance-digital-marketing-modern-business",
       icon: TrendingUp,
       category: "Marketing",
       title: "The Importance of Digital Marketing in Modern Business",
@@ -120,13 +120,13 @@ const Blog = () => {
                       <span className="text-gray-400 text-sm">{post.date}</span>
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-3">
-                      <Link href={`/blog/${post.id}`} className="hover:text-gray-300 transition duration-300">
+                      <Link href={`/blog/${post.slug}`} className="hover:text-gray-300 transition duration-300">
                         {post.title}
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">{post.description}</p>
                     <Link 
-                      href={`/blog/${post.id}`} 
+                      href={`/blog/${post.slug}`} 
                       className="text-gray-300 font-semibold hover:text-white transition duration-300 inline-flex items-center"
                     >
                       Read More 
